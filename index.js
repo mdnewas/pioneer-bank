@@ -1,5 +1,5 @@
 
-//loginbtn Handler
+//login btn Handler
 
 const loginBtn = document.getElementById("login");
 loginBtn.addEventListener("click" , function(){
@@ -13,8 +13,11 @@ loginBtn.addEventListener("click" , function(){
 
 const depositBtn = document.getElementById("deposit");
 depositBtn.addEventListener("click", function(){
+    
     // const depositAmount = document.getElementById("depositAmount").value;
     // const depositNumber = parseFloat (depositAmount);
+    
+    
     const depositNumber = inputNumber("depositAmount");
 
 
@@ -29,21 +32,30 @@ depositBtn.addEventListener("click", function(){
 const withdrawBtn = document.getElementById("withdraw");
 withdrawBtn.addEventListener("click", function(){
 
-    const withdraw = document.getElementById('withdrawBal').innerText;
-    const withdrawBal = parseFloat (withdraw);
 
     const withdrawNumber = inputNumber ("withdrawAmount");
-    // const withdrawAm = document.getElementById("withdrawAmount").value;
-    // const withdrawNumber = parseFloat (withdrawAm);
-    const withdrawTotal = withdrawBal + withdrawNumber ;
-    
-    document.getElementById("withdrawBal").innerText = withdrawTotal ;
-    const getBalance = document.getElementById("currentBalance").innerText;
-    const getNumBalance = parseFloat (getBalance);
-    const withdrawBalance = getNumBalance - withdrawNumber;
-    document.getElementById("currentBalance").innerText = withdrawBalance;
+
+
+    updateSpanText("withdrawBal" , withdrawNumber);
+    updateSpanText("currentBalance", -1*withdrawNumber);
 
     document.getElementById("withdrawAmount").value = "" ;
+
+    // const withdraw = document.getElementById('withdrawBal').innerText;
+    // const withdrawBal = parseFloat (withdraw);
+
+    // const withdrawAm = document.getElementById("withdrawAmount").value;
+    // const withdrawNumber = parseFloat (withdrawAm);
+    // const withdrawTotal = withdrawBal + withdrawNumber ;
+    
+    
+
+
+    // document.getElementById("withdrawBal").innerText = withdrawTotal ;
+    // const getBalance = document.getElementById("currentBalance").innerText;
+    // const getNumBalance = parseFloat (getBalance);
+    // const withdrawBalance = getNumBalance - withdrawNumber;
+    // document.getElementById("currentBalance").innerText = withdrawBalance;
 })
 
 function inputNumber(id){
